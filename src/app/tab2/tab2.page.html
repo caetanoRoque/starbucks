@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+
+  <!-- NOME -->
+  <ion-item>
+    <ion-label position="floating" color="medium">Nome do produto</ion-label>
+    <ion-input [(ngModel)]="produto.nome"></ion-input>
+  </ion-item>
+
+  <!-- FOTO -->
+  <ion-item>
+    <ion-label position="floating" color="medium">Foto</ion-label>
+    <ion-input [(ngModel)]="produto.foto"></ion-input>
+  </ion-item>
+
+  <!-- PREÇO -->
+  <ion-item>
+    <ion-label position="floating" color="medium">Preço</ion-label>
+    <ion-input [(ngModel)]="produto.preco" type="number"></ion-input>
+  </ion-item>
+
+  <!-- QUANTIDADE -->
+  <ion-item>
+    <ion-label position="floating" color="medium">Quantidade</ion-label>
+    <ion-input [(ngModel)]="produto.quantidade" type="number"></ion-input>
+  </ion-item>
+
+  <!-- DESCRIÇÃO -->
+  <ion-item>
+    <ion-label position="floating" color="medium">Descrição</ion-label>
+    <ion-textarea [(ngModel)]="produto.descricao" rows="1"></ion-textarea>
+  </ion-item>
+
+</ion-content>
+
+<!-- VERIFICAR OS INPUTS E SALVAR PRODUTO -->
+<ion-footer class="ion-no-border"> 
+  <ion-toolbar>
+    <ion-button color="success" expand="block" (click)="verificarInputs()">Salvar</ion-button>
+  </ion-toolbar>
+</ion-footer>

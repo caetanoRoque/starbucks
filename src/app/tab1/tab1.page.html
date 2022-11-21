@@ -1,0 +1,54 @@
+<ion-content [fullscreen]="false">
+  <ion-item *ngFor="let produto of produtos;" class="accordion">
+
+    <!-- FOTO DO PRODUTO -->
+    <ion-thumbnail id="trigger-button" class="foto">
+      <img src="{{produto.foto}}" id="{{produto.foto}}" (error)="imagemInvalida(img.id)" #img>
+    </ion-thumbnail>
+
+    <!-- ARMAZENAR INFORMAÇÕES DOS PRODUTOS EM UM "SELECT" -->
+    <ion-accordion-group>
+      <ion-accordion>
+
+        <ion-item slot="header" color="success">
+          <ion-label>{{produto.nome}}</ion-label>
+        </ion-item>
+        
+        <!-- INFORMAÇÕES DENTRO DO "SELECT" -->
+        <ion-list slot="content">
+
+          <!-- PREÇO -->
+          <ion-item>
+            <ion-label>R$ {{produto.preco.toFixed(2).replace('.',',')}}</ion-label>
+          </ion-item>
+
+          <!-- DESCRIÇÃO -->
+          <ion-item>
+            <ion-text class="descricao">{{produto.descricao}}</ion-text>
+          </ion-item>
+
+          <!-- ESTOQUE -->
+          <ion-item>
+            <ion-label>Estoque: {{produto.quantidade}}</ion-label>
+          </ion-item>
+
+          <!-- RANGE ONDE É SELECIONADO A QUANTIDADE DOS PRODUTOS QUE SERÃO COMPRADOS -->
+          <ion-item>
+              <ion-badge color="success">{{quantidadesSelecionadas[produto.id]}}</ion-badge>
+              <ion-range type="range" min="0" max="{{produto.quantidade}}" [(ngModel)]="quantidadesSelecionadas[produto.id]"></ion-range>
+          </ion-item>
+
+        </ion-list>
+
+      </ion-accordion>
+    </ion-accordion-group>
+    
+  </ion-item> 
+  </ion-content>
+
+  <!-- ABRIR CARRINHO -->
+  <ion-footer>
+    <ion-toolbar class="ion-no-border">
+      <ion-button (click)="verificar()" color="success" expand="block"><ion-icon name="cart-outline"></ion-icon></ion-button>
+    </ion-toolbar>
+  </ion-footer>

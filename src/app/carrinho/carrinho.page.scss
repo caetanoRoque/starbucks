@@ -1,0 +1,26 @@
+.div_titulo{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+.div_titulo h2{
+    font-size: 30px;
+    font-weight: 600;
+}
+.h2_green{
+    color: green;
+    font-weight: 600;
+}
+.div_card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+

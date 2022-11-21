@@ -1,0 +1,45 @@
+<ion-content>
+  <ion-item>
+    
+    <!-- PREÇO TOTAL -->
+    <div class="div_titulo">
+      <h2>Total: </h2><h2 class="h2_green">R$ {{this.precoTotal.toFixed(2).replace('.',',')}}</h2>
+    </div>
+  
+  </ion-item>
+
+    <!-- PRODUTOS NO CARRINHO -->
+    <ion-item *ngFor="let produtoComprado of produtosSelecionados" >
+
+      <div class="div_card">
+
+        <!-- COR DO ION-CARD -->
+        <ion-card color="success" style="box-shadow:black 2px 3px 6px;">
+
+          <!-- FOTO DO PRODUTO -->
+          <ion-img [src]="produtoComprado.foto"></ion-img>
+
+          <!-- NOME DO PRODUTO -->
+          <ion-card-header>
+            <ion-card-title>{{produtoComprado.nome}}</ion-card-title>
+          </ion-card-header>
+
+          <!-- QUANTIDADE SELECIONADA X PREÇO DO PRODUTO -->
+          <ion-card-content >
+            <h2>
+              {{produtoComprado.quantidade}}<label style="position: relative;bottom: 1px; font-family: monospace;"> x </label>
+              R$ {{produtoComprado.preco.toFixed(2).replace('.',',')}}
+            </h2> 
+          </ion-card-content>
+
+        </ion-card>
+        
+      </div>
+
+    </ion-item>
+    
+  </ion-content>
+  <ion-button (click)="comprar()" expand="block" color="success">Comprar</ion-button>
+  <ion-button (click)="voltar()" expand="block" color="success">voltar</ion-button>
+  
+
